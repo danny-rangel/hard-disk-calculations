@@ -1,11 +1,15 @@
 import React from 'react';
 
+import Calculator from './Calculator';
+import './App.css';
+
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         Hard Drive Math Calculator
       </header>
+      <Calculator />
     </div>
   );
 }

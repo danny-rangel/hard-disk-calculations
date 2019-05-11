@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+html,
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+body {
+    background: #485563;
+    background: -webkit-linear-gradient(to right, #29323c, #485563);
+    background: linear-gradient(to right, #29323c, #485563);
+
+}
+
+header {
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 20px;
+    color: white;
+    letter-spacing: -4px;
+    font-weight: 900;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    
+    header {
+        font-size: 1.7rem;
+        letter-spacing: -1px;
+    }
+
+  }
