@@ -77,7 +77,7 @@ const DataDisplay = ({ data }) => {
                 <Divider></Divider>
                 <h4>{`${data.readingTimePerCluster} ms`}</h4>
             </StyledMiniDiv>
-            <StyledMiniDiv>
+            <StyledMiniDiv style={{gridColumn: '1 / -1'}}>
                 <h4>Random Storage Read Time</h4>
                 <Divider></Divider>
                 <h4>{`${data.randomReadingTimeForFile} ms`}</h4>
