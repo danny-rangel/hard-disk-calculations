@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import DataInput from './DataInput';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const size = {
+    small: 600,
+    medium: 960,
+    large: 1140
+  }
+  
+  const media = Object.keys(size).reduce((acc, label) => {
+    acc[label] = (...args) => css`
+        @media (max-width: ${size[label]}px) {
+            ${css(...args)}
+        }
+    `
+    return acc;
+  }, {});
 
 const StyledForm = styled.form`
     box-sizing: border-box;
@@ -9,7 +24,34 @@ const StyledForm = styled.form`
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    text-align: center;
+
+    ${media.small`
+        grid-template-columns: 1fr;
+    `} 
+`;
+
+const StyledButton = styled.button`
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 5px;
+    cursor: pointer;
+    color: black;
+    background: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+    :hover {
+        color: #ffffff;
+        background: #FFBEA6;
+        transition: all 0.2s ease 0s;
+    }
+
 `;
 
 const DataForm = ({ fields, onSubmit }) => {
@@ -25,11 +67,11 @@ const DataForm = ({ fields, onSubmit }) => {
 
     const inputs = fields.map(field => (
         <DataInput
-          key={field}
-          id={field}
+          key={field.id}
+          id={field.id}
           onChange={handleInputChange}
-          value={values[field]}
-          label={field}
+          value={values[field.id]}
+          label={field.label}
         />
       ));
 
@@ -43,8 +85,8 @@ const DataForm = ({ fields, onSubmit }) => {
         <>
             <StyledForm onSubmit={e => handleSubmit(e)}>
                 {inputs}
-                <div style={{gridColumn: '1 / span 2', textAlign: 'center'}}>
-                    <button style={{width: '50%'}}>Calculate</button>
+                <div style={{width: '50%', justifySelf: 'center', alignSelf: 'center', gridColumn: '1 / -1'}}>
+                    <StyledButton onClick={handleSubmit}>Calculate</StyledButton>
                 </div>
             </StyledForm>
         </>

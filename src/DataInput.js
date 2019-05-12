@@ -1,28 +1,15 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-
-const size = {
-    small: 600,
-    medium: 960,
-    large: 1140
-  }
-  
-  const media = Object.keys(size).reduce((acc, label) => {
-    acc[label] = (...args) => css`
-        @media (max-width: ${size[label]}px) {
-            ${css(...args)}
-        }
-    `
-    return acc;
-  }, {});
-
-const StyledDiv = styled.div`
-    
-
-    ${media.small`
-        
-  `} 
+const StyledInput = styled.input`
+    border-radius: 10px;
+    width: 70%;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px auto;
+    text-align: center;
 `;
 
 
@@ -34,9 +21,9 @@ const DataInput = ({ label, onChange, value, id }) => {
     };
 
     return (
-        <div>
-            <h4>{label}</h4>
-            <input onChange={handleChange} value={value} ></input>
+        <div style={{width: '100%'}}>
+            <h3 className="boldLabel">{label}</h3>
+            <StyledInput onChange={handleChange} value={value} ></StyledInput>
         </div>
     );
 }

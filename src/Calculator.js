@@ -26,14 +26,17 @@ const StyledDiv = styled.div`
     grid-template-rows: 1fr 1fr;
     background: #fff;
     width: 80%;
-    margin-top: 40px;
+    margin: 40px 0px;
     border-radius: 4px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.125);
+    justify-items: center;
 
     ${media.small`
         width: 95%;
   `} 
 `;
+
+
 
 
 
@@ -68,12 +71,14 @@ const Calculator = () => {
         });
     }
 
-    const fields = ["Capacity", "AverageSeekTime", "SpindleSpeed", "BytesPerSector", 
-    "SectorsPerCluster", "SectorsPerTrack", "RecordsInFile", "BytesInRecord"]
+    const fields = [{id: "Capacity", label: "Capacity (GB)"}, {id: "AverageSeekTime", label: "Average Seek Time (ms)"}, 
+    {id: "SpindleSpeed", label: "Spindle Speed (rpm)"}, {id: "BytesPerSector", label: "Bytes Per Sector"}, 
+    {id: "SectorsPerCluster", label: "Sectors Per Cluster"}, {id: "SectorsPerTrack", label: "Sectors Per Track"}, 
+    {id: "RecordsInFile", label: "Records In File"}, {id: "BytesInRecord", label: "Bytes In Record"}]
 
     return (
         <StyledDiv>
-            <DataForm fields={fields} onSubmit={handleSubmit} />
+            <DataForm fields={fields} onSubmit={handleSubmit}></DataForm>
             <DataDisplay data={data}/>
         </StyledDiv>
     );
