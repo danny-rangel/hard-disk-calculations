@@ -38,8 +38,8 @@ const StyledDiv = styled.div`
 
 
 const Calculator = () => {
-    const [ data, setData ] = useState({avgRotDelay: 0, recordsInOneSector: 0, clustersPerFile: 0, readingTimePerTrack: 0, 
-        readingTimeForFile: 0, readingTimePerCluster: 0});
+    const [data, setData] = useState({avgRotDelay: 0, recordsInOneSector: 0, clustersPerFile: 0, readingTimePerTrack: 0, 
+        readingTimeForFile: 0, readingTimePerCluster: 0, randomReadingTimeForFile: 0});
 
     const handleSubmit = (values) => {
         setData(values);

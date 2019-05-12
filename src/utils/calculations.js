@@ -35,4 +35,3 @@ export function calculateReadingTimeForEntireFile(readingTimePerCluster, cluster
     return clustersPerFile * readingTimePerCluster;
 }
 
-export default { calculateAvgRotationalDelay, calculateRecordsStoredInOneSector };
