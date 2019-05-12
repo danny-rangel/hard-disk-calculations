@@ -49,7 +49,7 @@ const Calculator = () => {
         computeValues(values);
     }
 
-    const computeValues = async (values) => {
+    const computeValues = values => {
         const avgRotDelay = calculateAvgRotationalDelay(values.SpindleSpeed);
         const recordsInOneSector = calculateRecordsStoredInOneSector(values.BytesPerSector, values.BytesInRecord);
         const clustersPerFile = calculateClustersPerFile(values.RecordsInFile, values.SectorsPerCluster, recordsInOneSector);
