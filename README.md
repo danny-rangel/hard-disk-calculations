@@ -4,4 +4,4 @@ Simple application that performs some common calculations associated with hard d
 
 This includes calculating the average rotational delay, clusters needed for a file, time for reading a cluster, read times, etc.
 
-[Demo](https://compassionate-roentgen-56931d.netlify.com/)
+[Demo](https://hddcalculations.netlify.com/)
